@@ -18,10 +18,11 @@ class Scoper
     public function apply(Builder $builder, array $scopes)
     {
         foreach ($scopes as $key => $scope) {
+            
             if (!$scope instanceof Scope) {
                 continue;
             }
-            
+
             $scope->apply($builder, $this->request->get($key));
         }
 
